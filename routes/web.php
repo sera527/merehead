@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'BookController@index')->name('book_list');
+Route::get('add_book', 'BookController@create')->middleware('auth')->name('add_book_form');
+Route::post('add_book', 'BookController@store')->middleware('auth')->name('add_book');
 
 Auth::routes();
 
